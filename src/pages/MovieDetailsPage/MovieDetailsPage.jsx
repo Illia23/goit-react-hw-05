@@ -7,6 +7,7 @@ import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
+import css from './MovieDetailsPage.module.css'
 const notify = () => toast("Ups try again!");
 
 const MovieDetailsPage = () => {
@@ -42,11 +43,11 @@ const MovieDetailsPage = () => {
   return (
       <div>
             {error && <Loader />}
-            {isLoading && <ErrorMessage /> }
-      <div>
-        <Link to={backLinkRef.current} >
+      {isLoading && <ErrorMessage />}
+      <Link className={css.buttonLink} to={backLinkRef.current} >
           Go Back
         </Link>
+      <div>
         <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" />
               <div>
                   <h1>{original_title}</h1>
