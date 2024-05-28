@@ -42,27 +42,27 @@ const MovieDetailsPage = () => {
     
   return (
       <div>
-            {error && <Loader />}
-      {isLoading && <ErrorMessage />}
+         {error && <Loader />}
+         {isLoading && <ErrorMessage />}
       <Link className={css.buttonLink} to={backLinkRef.current} >
           Go Back
         </Link>
-      <div>
-        <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" />
-              <div>
-                  <h1>{original_title}</h1>
-                  <p>Use score:{vote_average }</p>
-                  <h2>Owerview</h2>
-                  <p>{overview }</p>
+      <div className={css.movieContainer}>
+        <img className={css.movieImage}  src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" />
+              <div className={css.movieDetails}>
+                  <h1 className={css.movieTitle}>{original_title}</h1>
+                  <p className={css.movieScore}>Use score:{vote_average }</p>
+                  <h2> Owerview</h2>
+                  <p className={css.movieOverview}>{overview }</p>
                   <h3>Genres</h3>
-                  <ul>
+                  <ul className={css.movieGenres}>
                       {genres &&
                         genres.length &&
                           genres.map(({ id, name }) => <li key={id}>{name}</li>)
                       }
                  </ul>
               </div>
-          </div>
+      </div>
           <ul>
               <li><NavLink to="reviews">reviews</NavLink></li>
               <li><NavLink to="cast">cast</NavLink></li>
